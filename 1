@@ -1,24 +1,28 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
 apiVersion: v1
 kind: Service
 metadata:
   annotations:
     meta.helm.sh/release-name: jenkins
-    meta.helm.sh/release-namespace: default
-  creationTimestamp: "2023-03-27T13:15:23Z"
+    meta.helm.sh/release-namespace: myapp
+  creationTimestamp: "2023-04-16T09:29:47Z"
   labels:
     app.kubernetes.io/instance: jenkins
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: jenkins
-    helm.sh/chart: jenkins-12.0.2
+    helm.sh/chart: jenkins-12.0.4
   name: jenkins
-  namespace: default
-  resourceVersion: "102852"
-  uid: 901ed671-0583-4a23-b85f-2664fdce4c47
+  namespace: myapp
+  resourceVersion: "1250740"
+  uid: 84fb36d4-19d2-400d-a340-132e911850c5
 spec:
   allocateLoadBalancerNodePorts: true
-  clusterIP: 10.108.170.150
+  clusterIP: 10.96.155.111
   clusterIPs:
-  - 10.108.170.150
+  - 10.96.155.111
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -26,12 +30,12 @@ spec:
   ipFamilyPolicy: SingleStack
   ports:
   - name: http
-    nodePort: 30783
+    nodePort: 32680
     port: 80
     protocol: TCP
     targetPort: http
   - name: https
-    nodePort: 30811
+    nodePort: 32672
     port: 443
     protocol: TCP
     targetPort: https
@@ -42,6 +46,4 @@ spec:
   sessionAffinity: None
   type: NodePort
 status:
-  loadBalancer:
-    ingress:
-    - hostname: localhost
+  loadBalancer: {}
